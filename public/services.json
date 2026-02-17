@@ -1,0 +1,122 @@
+[
+  {
+    "serviceId": 1,
+    "serviceName": "Winter Coat Fitting for Dogs",
+    "providerName": "PawCare Studio",
+    "providerEmail": "info@pawcare.com",
+    "price": 25,
+    "rating": 4.9,
+    "slotsAvailable": 4,
+    "description": "Custom coat fitting and warm outfit options to keep your dog comfortable in the cold.",
+    "image": "https://i.ibb.co.com/0pPVnm7b/service1.jpg",
+    "category": "Clothing"
+  },
+  {
+    "serviceId": 2,
+    "serviceName": "Winter Grooming & Paw Treatment",
+    "providerName": "CozyPets Grooming",
+    "providerEmail": "hello@cozypets.com",
+    "price": 30,
+    "rating": 4.8,
+    "slotsAvailable": 3,
+    "description": "Professional grooming with moisturizing paw balm and winter-safe shampoo.",
+    "image": "https://i.ibb.co.com/NgQM0hDr/service2.jpg",
+    "category": "Grooming"
+  },
+  {
+    "serviceId": 3,
+    "serviceName": "Indoor Pet Boarding & Heating",
+    "providerName": "WarmNest Shelters",
+    "providerEmail": "stay@warmnest.com",
+    "price": 50,
+    "rating": 4.7,
+    "slotsAvailable": 2,
+    "description": "Premium indoor stays with climate-controlled heating to keep your pets cozy while you're away.",
+    "image": "https://i.ibb.co.com/Mmfd6PR/service3.jpg",
+    "category": "Boarding"
+  },
+  {
+    "serviceId": 4,
+    "serviceName": "Winter Nutrition Consultation",
+    "providerName": "Dr. Paws Dietetics",
+    "providerEmail": "dr.paws@vetcare.com",
+    "price": 40,
+    "rating": 5.0,
+    "slotsAvailable": 5,
+    "description": "Expert advice on winter diet adjustments to maintain energy and body heat for your pets.",
+    "image": "https://i.ibb.co.com/Zz3ytCpS/service4.jpg",
+    "category": "Health"
+  },
+  {
+    "serviceId": 5,
+    "serviceName": "Anti-Freeze Safety Checkup",
+    "providerName": "VetFast Clinics",
+    "providerEmail": "help@vetfast.com",
+    "price": 15,
+    "rating": 4.6,
+    "slotsAvailable": 8,
+    "description": "Emergency checkup for paws and nose to detect symptoms of cold-related dryness or frostbite.",
+    "image": "https://i.ibb.co.com/MxcZxm1r/service5.jpg",
+    "category": "Health"
+  },
+  {
+    "serviceId": 6,
+    "serviceName": "Heated Bed Rentals",
+    "providerName": "PetSleep Comforts",
+    "providerEmail": "comfort@petsleep.com",
+    "price": 12,
+    "rating": 4.5,
+    "slotsAvailable": 10,
+    "description": "Rent high-quality orthopedic heated beds to ensure a warm night's sleep for senior pets.",
+    "image": "https://i.ibb.co.com/214mSQK5/service6.jpg",
+    "category": "Furniture"
+  },
+  {
+    "serviceId": 7,
+    "serviceName": "Winter Exercise Programs",
+    "providerName": "ActivePaws Gym",
+    "providerEmail": "fit@activepaws.com",
+    "price": 20,
+    "rating": 4.8,
+    "slotsAvailable": 6,
+    "description": "Specialized indoor exercise routines to keep your pets active when it's too cold for outdoor walks.",
+    "image": "https://i.ibb.co.com/4nRXJ7fK/service7.jpg",
+    "category": "Training"
+  },
+  {
+    "serviceId": 8,
+    "serviceName": "Pet Booties & Paw Protection",
+    "providerName": "StepEasy Gear",
+    "providerEmail": "gear@stepeasy.com",
+    "price": 18,
+    "rating": 4.4,
+    "slotsAvailable": 12,
+    "description": "High-grip winter booties to protect paws from ice, snow, and harmful road salt.",
+    "image": "https://i.ibb.co.com/XktgMBTT/service8.jpg",
+    "category": "Clothing"
+  },
+  {
+    "serviceId": 9,
+    "serviceName": "Fleece Sweater Customization",
+    "providerName": "FluffyThreads",
+    "providerEmail": "knit@fluffythreads.com",
+    "price": 35,
+    "rating": 4.9,
+    "slotsAvailable": 5,
+    "description": "Hand-knitted custom fleece sweaters tailored to your pet's size and breed.",
+    "image": "https://i.ibb.co.com/cK7WcCwh/service9.jpg",
+    "category": "Clothing"
+  },
+  {
+    "serviceId": 10,
+    "serviceName": "Warm Water Hydrotherapy",
+    "providerName": "AquaPaws Spa",
+    "providerEmail": "spa@aquapaws.com",
+    "price": 60,
+    "rating": 4.7,
+    "slotsAvailable": 2,
+    "description": "Soothing warm water therapy session to relieve joint pain caused by the winter cold.",
+    "image": "https://i.ibb.co.com/CDHrqhq/service10.jpg",
+    "category": "Wellness"
+  }
+]

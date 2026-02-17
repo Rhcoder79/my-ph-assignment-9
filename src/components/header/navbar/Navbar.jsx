@@ -39,11 +39,30 @@ const Navbar = () => {
         <li><NavLink className={({ isActive }) => isActive ? "text-primary font-bold border-b-2 border-blue" : "font-bold text-black"} to="/profile">My Profile</NavLink></li>
     </ul>
   </div>
-  <div className="navbar-end flex gap-5">
-    <div className=''>{user && user.email}</div>
-    <img className='w-12 rounded-full' src={users} alt="image not found" />
-    {user? <button onClick={handleLogOut} className='btn btn-primary px-10'>LogOut</button> : <Link to='/auth/login' className="btn btn-primary px-10">Login</Link>}
-  </div>
+<div className="navbar-end flex gap-5 items-center">
+  {user && user.email ? (
+    <div className="flex items-center gap-4">
+     
+      <span className="text-sm font-medium hidden sm:inline-block">
+        {user.email}
+      </span>
+      <div className="tooltip tooltip-bottom" data-tip={user?.displayName || "User"}>
+        <div className="avatar">
+          <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+            <img 
+              src={user?.photoURL || users} 
+              alt="User" 
+            />
+          </div>
+        </div>
+      </div>
+      
+      <button onClick={handleLogOut} className='btn btn-neutral px-6'>LogOut</button>
+    </div>
+  ) : (
+    <Link to='/auth/login' className="btn btn-primary px-10">Login</Link>
+  )}
+</div>
 </div>
     );
 };

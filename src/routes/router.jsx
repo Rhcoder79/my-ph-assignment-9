@@ -3,6 +3,7 @@ import HomeLayout from "../layouts/HomeLayout";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import AuthLayout from "../layouts/AuthLayout";
+import Home from "../components/home/Home";
 
 const router=createBrowserRouter(
     [
@@ -12,7 +13,7 @@ const router=createBrowserRouter(
        children: [
       {
         path: "/", 
-        element: <h2 className="text-center py-10">Welcome to Home Page</h2>,
+        element: <Home></Home>,
       },
       {
         path: "/services", 
