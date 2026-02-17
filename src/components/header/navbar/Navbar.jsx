@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { use } from 'react';
 import logo from '../../../assets/logo.jpg'
-import user from '../../../assets/user.png'
+import users from '../../../assets/user.png'
 import { Link, NavLink } from 'react-router';
+import { AuthContext } from '../../../provider/AuthProvider';
 const Navbar = () => {
+  const {user,logOut}=use(AuthContext);
+  const handleLogOut=()=>{
+    console.log('user trying to logout');
+    logOut().then(()=>{
+   alert('you logged out successfully')
+    }).catch((error)=>{
+   console.log(error);
+    });
+  }
     return (
         <div className="navbar bg-base-100 shadow-sm p-5">
   <div className="navbar-start">
@@ -30,8 +40,9 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end flex gap-5">
-    <img className='w-12 rounded-full' src={user} alt="image not found" />
-    <Link to='/auth/login' className="btn btn-primary px-10">Login</Link>
+    <div className=''>{user && user.email}</div>
+    <img className='w-12 rounded-full' src={users} alt="image not found" />
+    {user? <button onClick={handleLogOut} className='btn btn-primary px-10'>LogOut</button> : <Link to='/auth/login' className="btn btn-primary px-10">Login</Link>}
   </div>
 </div>
     );
