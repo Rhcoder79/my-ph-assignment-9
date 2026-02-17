@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../../../assets/logo.jpg'
 import user from '../../../assets/user.png'
-import { NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router';
 const Navbar = () => {
     return (
         <div className="navbar bg-base-100 shadow-sm p-5">
@@ -31,7 +31,7 @@ const Navbar = () => {
   </div>
   <div className="navbar-end flex gap-5">
     <img className='w-12 rounded-full' src={user} alt="image not found" />
-    <a className="btn btn-primary px-10">Login</a>
+    <Link to='/auth/login' className="btn btn-primary px-10">Login</Link>
   </div>
 </div>
     );
