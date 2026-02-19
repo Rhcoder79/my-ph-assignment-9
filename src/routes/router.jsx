@@ -14,9 +14,11 @@ const router=createBrowserRouter(
       {
         path: "/", 
         element: <Home></Home>,
-      },
+        loader:()=>fetch("/services.json")
+      }, 
       {
-        path: "/services", 
+        path: "/services/:id", 
+        loader:()=>fetch("/services.json"),
         element: <h2 className="text-center py-10">Our Services Layout</h2>,
       },
       {

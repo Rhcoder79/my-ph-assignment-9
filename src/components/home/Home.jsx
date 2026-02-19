@@ -1,4 +1,6 @@
 import React from 'react';
+import ServiceCard from './servicesCard/ServiceCard';
+import Service from './servicesCard/Service';
 
 const Home = () => {
 
@@ -40,7 +42,12 @@ const Home = () => {
                 <h2 className="text-4xl font-bold text-blue-900">Welcome to WarmPaws</h2>
                 <p className="mt-4 text-gray-600">Your trusted partner for pet care during the freezing winter months.</p>
             </div>
+                    <div className='w-11/12 mx-auto'>
+             <h2 className="text-3xl font-bold text-center mt-10">Our Featured Services</h2>
+            <Service></Service>
+                        </div>     
         </div>
+
     );
 };
 
