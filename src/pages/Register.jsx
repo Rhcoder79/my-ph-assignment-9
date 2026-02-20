@@ -1,10 +1,11 @@
 import React, { use } from 'react';
-import { Link, useNavigate } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../provider/AuthProvider';
 import { updateProfile } from 'firebase/auth'; 
 const Register = () => {
     const { createUser, setUser } = use(AuthContext);
     const navigate = useNavigate(); 
+    const location=useLocation();
     const handleRegister = (e) => {
         e.preventDefault();
        const form = e.target;
@@ -22,7 +23,7 @@ const Register = () => {
                 .then(() => {
                 
                   setUser({ ...user, displayName: name, photoURL: photo });
-                    navigate("/"); 
+                    navigate(location?.state ? location.state : "/"); 
                 })
                 .catch(err => console.log("Profile update error", err));
             })
