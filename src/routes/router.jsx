@@ -4,6 +4,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import AuthLayout from "../layouts/AuthLayout";
 import Home from "../components/home/Home";
+import PrivateRoute from "../privider/PrivateRoute";
 
 const router=createBrowserRouter(
     [
@@ -19,7 +20,7 @@ const router=createBrowserRouter(
       {
         path: "/services/:id", 
         loader:()=>fetch("/services.json"),
-        element: <h2 className="text-center py-10">Our Services Layout</h2>,
+        element: <PrivateRoute><h2 className="text-center py-10">Our Services Layout</h2></PrivateRoute>,
       },
       {
         path: "/profile", 

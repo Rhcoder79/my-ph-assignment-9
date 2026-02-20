@@ -30,10 +30,10 @@ const Login = () => {
   
             {/* email */}
           <label className="label">Email</label>
-          <input name='em' type="email" className="input" placeholder="Email" />
+          <input name='em' type="email" className="input" placeholder="Email" required />
           {/* password */}
           <label className="label">Password</label>
-          <input name='pass' type="password" className="input" placeholder="Password" />
+          <input name='pass' type="password" className="input" placeholder="Password" required />
           <div><a className="link link-hover">Forgot password?</a></div>
           <button type='submit' className="btn btn-neutral mt-4">Login</button>
         <p className='font-semibold text-center pt-5'>Don't Have An Account ? {" "} <Link className='text-secondary ' to='/auth/register'>Register</Link> </p>
