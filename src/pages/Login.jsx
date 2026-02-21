@@ -1,13 +1,28 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../provider/AuthProvider';
+import { FcGoogle } from 'react-icons/fc';
 
 const Login = () => {
-    const {signIn}=use(AuthContext);
+    const {signIn,signInWithGoogle}=use(AuthContext);
+    const [error, setError] = useState("");
     const navigate = useNavigate();
-    const location = useLocation()
+    const location = useLocation();
+   const handleGoogleSignIn = () => {
+        signInWithGoogle()
+            .then((result) => {
+                const user=result.user;
+                console.log(user);
+                
+                navigate(location?.state ? location.state : "/");
+            })
+            .catch((err) => {
+                setError(err.message);
+            });
+    };
     const handleLogin=(e)=>{
         e.preventDefault();
+        setError("");
         const form=e.target;
      const email=form.em.value;
      const password =form.pass.value;
@@ -16,12 +31,14 @@ const Login = () => {
      .then(result=>{
         const user=result.user;
         console.log(user);
+
         navigate(location?.state ? location.state : "/");
      })
      .catch((error)=>{
         const errorCode=error.code;
         const errorMessage=error.message;
-        alert(errorCode,errorMessage);
+        setError(errorMessage)
+        //alert(errorCode,errorMessage);
      });
     };
     return (
@@ -38,12 +55,17 @@ const Login = () => {
           <label className="label">Password</label>
           <input name='pass' type="password" className="input" placeholder="Password" required />
           <div><a className="link link-hover">Forgot password?</a></div>
+          {error && <p className='text-red-400 text-xs'>{error}</p>}
           <button type='submit' className="btn btn-neutral mt-4">Login</button>
         <p className='font-semibold text-center pt-5'>
             Don't Have An Account ? {" "} <Link className='text-secondary '  to='/auth/register' state={location.state}>Register</Link> </p>
 
         </fieldset>
       </form>
+    <div className='space-y-3'> 
+<button    onClick={handleGoogleSignIn} className="btn btn-secondary btn-outline w-full"><FcGoogle size={24} /> Login with Google </button>
+
+</div>
     </div>
         </div>
     );

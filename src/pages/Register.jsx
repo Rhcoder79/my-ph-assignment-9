@@ -2,6 +2,7 @@ import React, { use } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../provider/AuthProvider';
 import { updateProfile } from 'firebase/auth'; 
+import { toast } from 'react-toastify';
 const Register = () => {
     const { createUser, setUser } = use(AuthContext);
     const navigate = useNavigate(); 
@@ -29,7 +30,7 @@ const Register = () => {
             })
             .catch((error) => {
                  console.error("Registration error:", error.message);
-                alert(error.message);
+                toast(error.message);
             });
     };
     return (
