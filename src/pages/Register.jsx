@@ -3,11 +3,24 @@ import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../provider/AuthProvider';
 import { updateProfile } from 'firebase/auth'; 
 import { toast } from 'react-toastify';
+import { FcGoogle } from 'react-icons/fc';
 const Register = () => {
-    const { createUser, setUser } = use(AuthContext);
+    const { createUser, setUser,signInWithGoogle } = use(AuthContext);
     const [error, setError] = useState("");
     const navigate = useNavigate(); 
     const location=useLocation();
+    const handleGoogleSignIn = () => {
+        signInWithGoogle()
+            .then((result) => {
+                const user=result.user;
+                console.log(user);
+                
+                navigate(location?.state ? location.state : "/");
+            })
+            .catch((err) => {
+                setError(err.message);
+            });
+    };
     const handleRegister = (e) => {
         e.preventDefault();
         setError("");
@@ -78,6 +91,9 @@ const Register = () => {
                         </p>
                     </fieldset>
                 </form>
+                <div className='space-y-3'> 
+<button    onClick={handleGoogleSignIn} className="btn btn-secondary btn-outline w-full"><FcGoogle size={24} /> Login with Google </button>
+</div>
             </div>
         </div>
     );

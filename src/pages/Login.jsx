@@ -27,6 +27,19 @@ const Login = () => {
      const email=form.em.value;
      const password =form.pass.value;
      console.log({email,password});
+       if (password.length < 6) {
+            setError("Password must be at least 6 characters long.");
+            return;
+        }
+        if (!/[A-Z]/.test(password)) {
+            setError("Password must contain at least one uppercase letter.");
+            return;
+        }
+      
+        if (!/[a-z]/.test(password)) {
+            setError("Password must contain at least one lowercase letter.");
+            return;
+        }
      signIn(email,password)
      .then(result=>{
         const user=result.user;
@@ -64,7 +77,6 @@ const Login = () => {
       </form>
     <div className='space-y-3'> 
 <button    onClick={handleGoogleSignIn} className="btn btn-secondary btn-outline w-full"><FcGoogle size={24} /> Login with Google </button>
-
 </div>
     </div>
         </div>
