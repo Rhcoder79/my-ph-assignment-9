@@ -1,19 +1,36 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../provider/AuthProvider';
 import { updateProfile } from 'firebase/auth'; 
 import { toast } from 'react-toastify';
 const Register = () => {
     const { createUser, setUser } = use(AuthContext);
+    const [error, setError] = useState("");
     const navigate = useNavigate(); 
     const location=useLocation();
     const handleRegister = (e) => {
         e.preventDefault();
+        setError("");
        const form = e.target;
       const name = form.name.value;
       const photo = form.photo.value;
          const email = form.em.value;
         const password = form.pass.value;
+        if (password.length < 6) {
+            setError("Password must be at least 6 characters long.");
+            return;
+        }
+        if (!/[A-Z]/.test(password)) {
+            setError("Password must contain at least one uppercase letter.");
+            return;
+        }
+      
+        if (!/[a-z]/.test(password)) {
+            setError("Password must contain at least one lowercase letter.");
+            return;
+        }
+        
+       
         createUser(email, password)
             .then((result) => {
                 const user = result.user;
@@ -30,6 +47,7 @@ const Register = () => {
             })
             .catch((error) => {
                  console.error("Registration error:", error.message);
+                 setError(error.message);
                 toast(error.message);
             });
     };
@@ -51,6 +69,8 @@ const Register = () => {
                         {/* password */}
                   <label className="label">Password</label>
                       <input name='pass' type="password" className="input" placeholder="Password" required />
+                       {error && ( <p className="text-red-600    text-xs ">  {error} </p>
+                        )} 
                         <button type='submit' className="btn btn-neutral mt-4">Register</button>
                     <p className='font-semibold text-center pt-5'>
                             Already Have An Account? {" "} 
