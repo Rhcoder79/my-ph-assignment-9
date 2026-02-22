@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ServiceCard from './servicesCard/ServiceCard';
 import Service from './servicesCard/Service';
 import WinterCareTips from '../WinterCareTips';
 import ExpertVets from '../ExpertVets';
 import SuccessStories from './SuccessStories';
-
+import AOS from 'aos';
 const Home = () => {
-
+useEffect(() => {
+        AOS.refresh();
+    }, []);
     const slides = [
         { id: "slide1", img: "https://images.unsplash.com/photo-1548546738-8509cb246ed3", title: "Cozy Winter Coat", prev: "#slide4", next: "#slide2" },
         { id: "slide2", img: "https://images.unsplash.com/photo-1516734212186-a967f81ad0d7", title: "Paw Protection", prev: "#slide1", next: "#slide3" },
@@ -15,9 +17,9 @@ const Home = () => {
     ];
 
     return (
-        <div className="w-11/12 mx-auto">
+        <div className="w-11/12 mx-auto overflow-x-hidden">
             {/* Carousel Container */}
-            <div className="carousel w-full mt-5 rounded-xl shadow-xl overflow-hidden">
+            <div data-aos="fade-down" className="carousel w-full mt-5 rounded-xl shadow-xl overflow-hidden">
                 {slides.map((slide) => (
                     <div key={slide.id} id={slide.id} className="carousel-item relative w-full h-75 md:h-125">
                         <img 
@@ -41,7 +43,7 @@ const Home = () => {
             </div>
 
             {/* Welcome Section */}
-            <div className="text-center py-16">
+            <div data-aos="zoom-in" className="text-center py-16">
                 <h2 className="text-4xl font-bold text-blue-900">Welcome to WarmPaws</h2>
                 <p className="mt-4 text-gray-600">Your trusted partner for pet care during the freezing winter months.</p>
             </div>

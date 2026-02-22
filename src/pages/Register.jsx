@@ -4,9 +4,11 @@ import { AuthContext } from '../provider/AuthProvider';
 import { updateProfile } from 'firebase/auth'; 
 import { toast } from 'react-toastify';
 import { FcGoogle } from 'react-icons/fc';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 const Register = () => {
     const { createUser, setUser,signInWithGoogle } = use(AuthContext);
     const [error, setError] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate(); 
     const location=useLocation();
     const handleGoogleSignIn = () => {
@@ -81,7 +83,12 @@ const Register = () => {
                         <input name='em' type="email" className="input" placeholder="Email" required />
                         {/* password */}
                   <label className="label">Password</label>
-                      <input name='pass' type="password" className="input" placeholder="Password" required />
+                  <div className='relative w-full'>
+          <input name='pass' type={showPassword ? "text" : "password"} className="input" placeholder="Password" required />
+<button  type='button' onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-3 text-xl" >
+      {showPassword ? <FaEyeSlash /> : <FaEye />}
+    </button>
+                  </div>
                        {error && ( <p className="text-red-600    text-xs ">  {error} </p>
                         )} 
                         <button type='submit' className="btn btn-neutral mt-4">Register</button>

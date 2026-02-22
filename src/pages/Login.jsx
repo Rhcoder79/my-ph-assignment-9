@@ -2,10 +2,14 @@ import React, { use, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../provider/AuthProvider';
 import { FcGoogle } from 'react-icons/fc';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { toast } from 'react-toastify';
 
 const Login = () => {
     const {signIn,signInWithGoogle}=use(AuthContext);
     const [error, setError] = useState("");
+    const [email, setEmail] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
    const handleGoogleSignIn = () => {
@@ -50,6 +54,7 @@ const Login = () => {
      .catch((error)=>{
         const errorCode=error.code;
         const errorMessage=error.message;
+        toast("Invalid Login! Please check email or password.");
         setError(errorMessage)
         //alert(errorCode,errorMessage);
      });
@@ -63,11 +68,19 @@ const Login = () => {
   
             {/* email */}
           <label className="label">Email</label>
-          <input name='em' type="email" className="input" placeholder="Email" required />
+          <input name='em' type="email" onChange={(e) => setEmail(e.target.value)} className="input" placeholder="Email" required />
           {/* password */}
           <label className="label">Password</label>
-          <input name='pass' type="password" className="input" placeholder="Password" required />
-          <div><a className="link link-hover">Forgot password?</a></div>
+           <div className='relative w-full'>
+                    <input name='pass' type={showPassword ? "text" : "password"} className="input" placeholder="Password" required />
+          <button  type='button' onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-3 text-xl" >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </button>
+                            </div>
+          <div>
+            <Link  to="/auth/forgot-password" state={{ email: email }}  className="link link-hover">Forgot password?
+            </Link>
+  </div>
           {error && <p className='text-red-400 text-xs'>{error}</p>}
           <button type='submit' className="btn btn-neutral mt-4">Login</button>
         <p className='font-semibold text-center pt-5'>
