@@ -1,6 +1,9 @@
 import React from 'react';
 import ServiceCard from './servicesCard/ServiceCard';
 import Service from './servicesCard/Service';
+import WinterCareTips from '../WinterCareTips';
+import ExpertVets from '../ExpertVets';
+import SuccessStories from './SuccessStories';
 
 const Home = () => {
 
@@ -46,6 +49,11 @@ const Home = () => {
              <h2 className="text-3xl font-bold text-center mt-10">Our Featured Services</h2>
             <Service></Service>
                         </div>     
+                    <WinterCareTips></WinterCareTips>
+
+            
+            <ExpertVets />  
+            <SuccessStories></SuccessStories> 
         </div>
 
     );

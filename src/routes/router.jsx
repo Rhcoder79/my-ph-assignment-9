@@ -6,6 +6,8 @@ import AuthLayout from "../layouts/AuthLayout";
 import Home from "../components/home/Home";
 import ServiceDetails from "../pages/ServiceDetails";
 import PrivateRoute from "../privider/PrivateRoute"
+import Profile from "../pages/Profile";
+import ServicePage from "../pages/ServicePage";
 const router=createBrowserRouter(
     [
      {
@@ -18,13 +20,18 @@ const router=createBrowserRouter(
         loader:()=>fetch("/services.json")
       }, 
       {
+        path: "/services", 
+        loader:()=>fetch("/services.json"),
+        element: <PrivateRoute><ServicePage></ServicePage></PrivateRoute> ,
+      },
+      {
         path: "/services/:id", 
         loader:()=>fetch("/services.json"),
         element: <PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>,
       },
       {
         path: "/profile", 
-        element: <h2 className="text-center py-10">User Profile Layout</h2>,
+        element: <PrivateRoute><Profile /></PrivateRoute>,
       },
       
     ],
