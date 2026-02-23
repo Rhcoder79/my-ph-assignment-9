@@ -10,7 +10,7 @@ const ServiceDetailCard = ({details}) => {
    const form=e.target;
    const email=form.em.value;
    const name=form.name.value;
-   console.log({name,email});
+   //console.log({name,email});
       toast(`Successfully Booked! ${details.serviceName}`);
      
       form.reset();

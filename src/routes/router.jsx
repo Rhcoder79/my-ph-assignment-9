@@ -9,26 +9,30 @@ import PrivateRoute from "../privider/PrivateRoute"
 import Profile from "../pages/Profile";
 import ServicePage from "../pages/ServicePage";
 import ForgotPassword from "../pages/ForgotPassword";
+import Loading from "../pages/Loading";
 const router=createBrowserRouter(
     [
      {
        path:"/",
-       element: <Ho></HomeLayout>,
+       element: <HomeLayout></HomeLayout>,
        children: [
       {
         path: "/", 
         element: <Home></Home>,
-        loader:()=>fetch("/services.json")
+        loader:()=>fetch("/services.json"),
+        hydrateFallbackElement:<Loading></Loading>
       }, 
       {
         path: "/services", 
         loader:()=>fetch("/services.json"),
+        hydrateFallbackElement:<Loading></Loading>,
         element: <PrivateRoute><ServicePage></ServicePage></PrivateRoute> ,
       },
       {
         path: "/services/:id", 
         loader:()=>fetch("/services.json"),
-        element: <PrivateRoute><Servs></ServiceDetails></PrivateRoute>,
+        hydrateFallbackElement:<Loading></Loading>,
+        element: <PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>,
       },
       {
         path: "/profile", 

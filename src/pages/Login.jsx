@@ -16,7 +16,7 @@ const Login = () => {
         signInWithGoogle()
             .then((result) => {
                 const user=result.user;
-                console.log(user);
+                //console.log(user);
                 
                 navigate(location?.state ? location.state : "/");
             })
@@ -30,7 +30,7 @@ const Login = () => {
         const form=e.target;
      const email=form.em.value;
      const password =form.pass.value;
-     console.log({email,password});
+     //console.log({email,password});
        if (password.length < 6) {
             setError("Password must be at least 6 characters long.");
             return;
@@ -47,7 +47,7 @@ const Login = () => {
      signIn(email,password)
      .then(result=>{
         const user=result.user;
-        console.log(user);
+        //console.log(user);
 
         navigate(location?.state ? location.state : "/");
      })

@@ -2,9 +2,9 @@ import React from 'react';
 
 const ExpertVets = () => {
     const vets = [
-        { id: 1, name: "Dr. Sarah Johnson", specialist: "Pet Nutritionist", img: "https://i.ibb.co.com/m5pW6QW/vet1.jpg" },
-        { id: 2, name: "Dr. Robert Smith", specialist: "Winter Health Expert", img: "https://i.ibb.co.com/GfV5LzS/vet2.jpg" },
-        { id: 3, name: "Dr. Emily Davis", specialist: "Behavioral Specialist", img: "https://i.ibb.co.com/8X7Kq9P/vet3.jpg" },
+        { id: 1, name: "Dr. Sarah Johnson", specialist: "Pet Nutritionist", img: "https://i.ibb.co.com/Lzk4gwzV/doc1.jpg" },
+        { id: 2, name: "Dr. Robert Smith", specialist: "Winter Health Expert", img: "https://i.ibb.co.com/SXhvpH5m/doc2.png" },
+        { id: 3, name: "Dr. Emily Davis", specialist: "Behavioral Specialist", img: "https://i.ibb.co.com/mV6840CS/doc3.webp" },
     ];
 
     return (
