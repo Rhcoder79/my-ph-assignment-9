@@ -13,7 +13,7 @@ const router=createBrowserRouter(
     [
      {
        path:"/",
-       element: <HomeLayout></HomeLayout>,
+       element: <Ho></HomeLayout>,
        children: [
       {
         path: "/", 
@@ -28,7 +28,7 @@ const router=createBrowserRouter(
       {
         path: "/services/:id", 
         loader:()=>fetch("/services.json"),
-        element: <PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>,
+        element: <PrivateRoute><Servs></ServiceDetails></PrivateRoute>,
       },
       {
         path: "/profile", 

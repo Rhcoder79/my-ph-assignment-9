@@ -12,9 +12,9 @@ const ServiceDetails = () => {
     setDetails(serviceDetail)
     },[data,id])
     return (
-        <div>
-            ness aanajaja
-            <div>
+        <div className='min-h-screen bg-gray-50 py-10 px-4'>
+            
+            <div className='max-w-4xl mx-auto'>
                 <ServiceDetailCard details={details}></ServiceDetailCard>
             </div>
         </div>
