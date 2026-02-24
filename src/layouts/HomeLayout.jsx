@@ -17,7 +17,7 @@ const HomeLayout = () => {
             <main className="min-h-screen"> 
    
     <section className="main">
-      {state=="loading"?<Loading />  : <Outlet></Outlet>} 
+      {state=="loading" ? <Loading />  : <Outlet></Outlet>} 
     </section>
 
     {/* Hero Section */}
